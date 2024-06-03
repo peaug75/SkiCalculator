@@ -1,0 +1,18 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/GererateApi/bin/Debug/net8.0
+/GererateApi/obj
+/Stratsys.SkiBackend/bin/Debug/net8.0
+/Stratsys.SkiBackend/obj
+/Stratsys.SkiBackent.Test/bin/Debug/net8.0
+/Stratsys.SkiBackent.Test/obj
+/Stratsys.SkiCalculator/.vs/Stratsys.SkiCalculator
+/Stratsys.SkiCalculator/bin/Debug/net8.0
+/Stratsys.SkiCalculator/obj
+/Stratsys.SkiSelect/bin/Debug/net8.0
+/Stratsys.SkiSelect/obj
+/.vs/Stratsys.SkiCalculator/FileContentIndex
+/.vs/Stratsys.SkiCalculator/v17/.suo
+/.vs

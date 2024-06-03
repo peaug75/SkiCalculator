@@ -1,0 +1,46 @@
+﻿@page "/counter"
+@using global::SkiSelect
+@rendermode InteractiveServer
+
+<PageTitle>Ski Calculator</PageTitle>
+
+<h1>Calculator</h1>
+
+Age:<br /><InputText @bind-Value="@Age" /><br /><br />
+Length:<br /><InputText @bind-Value="@Length" /><br /><br />
+Freestyle:<InputCheckbox @bind-Value="@Freestyle"></InputCheckbox><br /><br />
+<button class="btn btn-primary" @onclick="@Calculate">Calculate</button><br /><br /><br />
+<p role="status">@Message</p>
+
+@code {
+    private SkiApi _dataClient;
+    public string Message { get; set; } = "";
+    public bool Freestyle { get; set; }
+    public string Age { get; set; } = "";
+    public string Length { get; set; } = "";
+    private int currentMax = 0;
+    private int currentMin = 0;
+
+    public Counter()
+    {
+        var client = new HttpClient();
+        _dataClient = new SkiApi("https://localhost:7070/", client);
+
+    }
+
+
+    private void Calculate()
+    {
+        try
+        {
+            var result = _dataClient.GetSkiLengthAsync(int.Parse(Age), int.Parse(Length), Freestyle).Result;
+            currentMin = result.MinLength;
+            currentMax = result.MaxLength;
+            Message = "Recommendation: " + currentMin + " to " + @currentMax + " cm";
+        }
+        catch(Exception ex)
+        {
+            Message = ex.Message;
+        }  
+    }
+}
