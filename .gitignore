@@ -16,3 +16,5 @@
 /.vs/Stratsys.SkiCalculator/FileContentIndex
 /.vs/Stratsys.SkiCalculator/v17/.suo
 /.vs
+/Stratsys.SkiBackend.Test/bin/Debug/net8.0
+/Stratsys.SkiBackend.Test/obj
